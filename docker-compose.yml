@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  database:
+    container_name: cilist-db
+    image: profesorgreen36/cilist-db:${GIT_COMMIT_SHORT}
+  
+  backend:
+    image: profesorgreen36/cilist-be:${GIT_COMMIT_SHORT}
+    ports:
+      - "5000:5000"
+    depends_on:
+      - database
+    environment:
+      - BASE_URL_PORT=5000
+      - MYSQL_ROOT_PASSWORD=s3k0l4hd3v0p5
+      - DATABASE_USERNAME=people
+      - DATABASE_PASSWORD=people
+      - DATABASE_DATABASE=people
+      - DATABASE_HOST=database
+      - DATABASE_PORT=3306
+  
+  frontend:
+    image: profesorgreen36/cilist-fe:${GIT_COMMIT_SHORT}
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_URL=http://ec2-35-87-172-82.us-west-2.compute.amazonaws.com:5000
