@@ -82,4 +82,4 @@ App used:
 
 ---
 
-Tested by: Ariandy
+Tested by: Ariandy.
