@@ -2,7 +2,7 @@ FROM node:lts-gallium
 
 WORKDIR /app
 
-COPY . /app
+COPY backend /app
 
 RUN apt update && apt install nano -y
 

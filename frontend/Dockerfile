@@ -4,7 +4,7 @@ ENV NODE_ENV=development
 
 WORKDIR /app
 
-COPY . /app
+COPY frontend /app
 
 RUN apt update && apt install nano -y
 
