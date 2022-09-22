@@ -4,6 +4,8 @@ services:
   database:
     container_name: cilist-db
     image: ooxyz/cilist-db:${GIT_COMMIT_SHORT}
+      ports:
+        - "3306:3306"
   
   backend:
     image: ooxyz/cilist-be:${GIT_COMMIT_SHORT}
